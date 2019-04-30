@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- classPathEntry:数据库的JDBC驱动的jar包地址-->
+    <classPathEntry
+            location="C:\Maven\repository_Maven\mysql\mysql-connector-java\5.1.47\mysql-connector-java-5.1.47.jar"/>
+    <context id="testTables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/liu?useUnicode=true&amp;characterEncoding=utf-8&amp;tinyInt1isBit=false"
+                        userId="root"
+                        password="123">
+        </jdbcConnection>
+
+        <!--&lt;!&ndash;服务器数据库   &用&amp;转码&ndash;&gt;-->
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"-->
+        <!--connectionURL="jdbc:mysql://rm-bp1as754r0vs7x79nko.mysql.rds.aliyuncs.com:3306/dev_minghao_channel?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"-->
+        <!--userId="minghaoadmin"-->
+        <!--password="minghao@1234">-->
+        <!--</jdbcConnection>-->
+
+        <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和
+            NUMERIC 类型解析为java.math.BigDecimal -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- targetProject:生成PO类的位置 -->
+        <javaModelGenerator targetPackage="com.jinnian.framework.model.channel.entity"
+                            targetProject="./src">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false"/>
+            <!-- 从数据库返回的值被清理前后的空格 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!-- targetProject:mapper映射文件生成的位置 -->
+        <sqlMapGenerator targetPackage="com.jinnian.framework.model"
+                         targetProject="./src">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+        <!-- targetPackage：mapper接口生成的位置 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.jinnian.framework.model"
+                             targetProject="./src">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+
+        <!-- 指定数据库表 -->
+        <!--
+            schema即为数据库名
+            tableName为对应的数据库表
+            domainObjectName是要生成的实体类
+            enable*ByExample : 是否生成 example类
+            useActualColumnNames 采用下划线字段  -->
+
+
+        <!--<table tableName="user" domainObjectName="UserDO"-->
+        <!--enableCountByExample="false" enableUpdateByExample="false"-->
+        <!--enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">-->
+        <!--</table>-->
+
+
+        <table tableName="user" domainObjectName="UserDO"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+        </table>
+
+
+        <!-- 忽略列，不生成bean 字段
+        <ignoreColumn column="FRED" />-->
+
+        <!-- 指定列的java数据类型
+        <columnOverride column="tinyint" jdbcType="BYTE"/>-->
+
+
+    </context>
+</generatorConfiguration>

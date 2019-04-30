@@ -1,0 +1,4 @@
+[INFO ] 2019-04-18 22:07:48.534 [http-nio-8001-exec-1] GlobalLogHandler - /hello/hello 127.0.0.1
+[INFO ] 2019-04-18 22:07:48.772 [http-nio-8001-exec-1] GlobalLogHandler - totalTime : 0.281s
+[INFO ] 2019-04-18 22:09:07.122 [http-nio-8001-exec-3] GlobalLogHandler - /hello/hello 0:0:0:0:0:0:0:1
+[INFO ] 2019-04-18 22:09:07.123 [http-nio-8001-exec-3] GlobalLogHandler - totalTime : 0.002s

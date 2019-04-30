@@ -1,0 +1,8 @@
+[INFO ] 2019-04-14 12:04:37.574 [main] App - The following profiles are active: dev
+[INFO ] 2019-04-14 12:04:54.767 [main] App - Started App in 23.968 seconds (JVM running for 33.07)
+[INFO ] 2019-04-14 12:05:17.997 [http-nio-8001-exec-1] GlobalLogHandler - /hello/hello 127.0.0.1
+[INFO ] 2019-04-14 12:05:18.003 [http-nio-8001-exec-1] GlobalLogHandler - totalTime : 0.015s
+[INFO ] 2019-04-14 12:35:21.253 [http-nio-8001-exec-3] GlobalLogHandler - /hello/hello 127.0.0.1
+[INFO ] 2019-04-14 12:35:21.266 [http-nio-8001-exec-3] GlobalLogHandler - totalTime : 0.021s
+[INFO ] 2019-04-14 12:43:05.766 [http-nio-8001-exec-8] GlobalLogHandler - /hello/hello 0:0:0:0:0:0:0:1
+[INFO ] 2019-04-14 12:43:05.770 [http-nio-8001-exec-8] GlobalLogHandler - totalTime : 0.005s
