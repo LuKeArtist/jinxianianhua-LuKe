@@ -33,7 +33,6 @@ public class UserController {
         System.out.println(channel.getPassword());
         System.out.println(channel.getUsername());
 
-
         ChannelDo us = userService.login(channel);
         //用户名和密码
         if (us == null) {
@@ -58,7 +57,7 @@ public class UserController {
             channel.setLogin_at(new Date());
             System.out.println(new Date());
 
-            userService.addUpdate(channel);
+           // userService.addUpdate(channel);
 
 
             //保存用户id到session
