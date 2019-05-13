@@ -25,9 +25,9 @@
 
   </select>
 
-  <!--添加-->
-  <insert id="addUser"  parameterType="com.framework.model.channel.entity.ChannelDo">
-  INSERT INTO tb_channel (last_login_token) VALUES (#{last_login_token})
+  <!--修改-->
+  <insert id="addUpdate"  parameterType="com.framework.model.channel.entity.ChannelDo">
+    UPDATE tb_channel SET login_at=#{login_at},last_login_token=#{last_login_token} WHERE id=#{id}
  </insert>
 
 </mapper>

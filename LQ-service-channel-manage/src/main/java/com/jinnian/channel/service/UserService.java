@@ -13,6 +13,6 @@ public interface UserService {
     //登陆
     ChannelDo login(ChannelDo channelDo);
 
-    //添加
-    ChannelDo addUser(ChannelDo channelDo);
+    //修改
+    ChannelDo addUpdate(ChannelDo channelDo);
 }

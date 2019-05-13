@@ -24,17 +24,19 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public ChannelDo login(ChannelDo channelDo) {
+
         return userMapper.login(channelDo);
     }
 
     /**
-     * 添加
+     * 修改
      * @param channelDo
      * @return
      */
     @Override
-    public ChannelDo addUser(ChannelDo channelDo) {
-        return userMapper.addUser(channelDo);
+    public ChannelDo addUpdate(ChannelDo channelDo) {
+
+        return userMapper.addUpdate(channelDo);
     }
 
 

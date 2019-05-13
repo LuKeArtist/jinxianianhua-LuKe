@@ -57,7 +57,7 @@ public class UserController {
             //获取当前时间
             channel.setLogin_at(new Date());
             System.out.println(new Date());
-            userService.addUser(channel);
+            userService.addUpdate(channel);
 
 
             //保存用户id到session
