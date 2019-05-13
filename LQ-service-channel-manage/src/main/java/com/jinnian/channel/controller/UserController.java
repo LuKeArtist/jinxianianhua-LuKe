@@ -42,6 +42,7 @@ public class UserController {
        //获取手机号
         ChannelDo cd=new ChannelDo();
         cd.setPhone(phone);
+        cd.setPassword(password);
 
         //调用方法查询数据库的验证码
         CodeDo codeDo = new CodeDo();
@@ -49,15 +50,16 @@ public class UserController {
         CodeDo usercode = codeService.findAll(codeDo);
 
         //调用登陆的方法
-        ChannelDo user = userService.login(cd);
+        //ChannelDo us = userService.login(cd);
+        //查询
+        ChannelDo us = userService.findAll(cd);
         if(!usercode.getCode().equals(code)) {
-            return ResultBean.ofSuccess(0, "验证码不匹配，注册失败");
+            return ResultBean.ofError(0, "验证码不匹配，注册失败");
         }
-        if (user != null) {
-            System.out.println("注册失败");
-            return ResultBean.ofSuccess(0, "手机号已存在,注册失败");
-        }if(user == null){
-            System.out.println("注册成功");
+        if (us != null) {
+            System.out.println(us+"4444444444444444444444");
+            return ResultBean.ofError(0, "手机号已存在,注册失败");
+        } else {
 
 
             //添加到数据库

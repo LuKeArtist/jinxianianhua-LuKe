@@ -2,6 +2,7 @@ package com.jinnian.channel.service;
 
 
 import com.framework.model.channel.entity.ChannelDo;
+import com.framework.model.channel.entity.CodeDo;
 
 
 /**
@@ -19,5 +20,8 @@ public interface UserService {
 
     //添加
     ChannelDo addAll(ChannelDo channelDo);
+
+    //查询
+    ChannelDo findAll(ChannelDo channelDo);
 
 }

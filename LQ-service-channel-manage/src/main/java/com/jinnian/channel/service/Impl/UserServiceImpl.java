@@ -55,4 +55,10 @@ public class UserServiceImpl implements UserService {
         return userMapper.addAll(channelDo);
     }
 
+    @Override
+    public ChannelDo findAll(ChannelDo channelDo) {
+
+        return userMapper.findAll(channelDo);
+    }
+
 }

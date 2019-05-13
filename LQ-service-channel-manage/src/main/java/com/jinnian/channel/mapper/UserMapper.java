@@ -23,6 +23,7 @@ public interface UserMapper {
     //添加
     ChannelDo addAll(ChannelDo channelDo);
 
-
+    //查询
+    ChannelDo findAll(ChannelDo channelDo);
 
 }

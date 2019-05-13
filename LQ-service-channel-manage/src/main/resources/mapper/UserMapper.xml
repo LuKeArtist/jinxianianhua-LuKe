@@ -38,4 +38,12 @@
   INSERT INTO tb_channel (username,password,phone) VALUES (#{username},#{password},#{phone})
  </insert>
 
+
+  <!--查询-->
+  <select id="findAll" parameterType="com.framework.model.channel.entity.ChannelDo" resultMap="BaseResultMap">
+SELECT
+    *
+    FROM tb_channel
+  </select>
+
 </mapper>
