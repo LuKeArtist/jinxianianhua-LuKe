@@ -32,5 +32,10 @@
 
     </update>
 
+  <!--添加-->
+  <insert id="addAll"  parameterType="com.framework.model.channel.entity.ChannelDo">
+
+  INSERT INTO tb_channel (username,password,phone) VALUES (#{username},#{password},#{phone})
+ </insert>
 
 </mapper>

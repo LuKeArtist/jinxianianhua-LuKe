@@ -6,13 +6,10 @@ import com.jinnian.channel.service.CodeService;
 import com.jinnian.channel.service.UserService;
 import com.jinnian.framework.common.response.ResultBean;
 import com.jinnian.framework.util.pictureUtils.TokenProccessor;
-import com.minghao.framework.model.channel.entity.UserCodeDO;
-import com.minghao.framework.model.channel.entity.UserDO;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 
@@ -35,7 +32,7 @@ public class UserController {
 
     @PostMapping(value = "/register")
     @ApiOperation(value = "用户注册")
-    public ResultBean register(@RequestBody String password, String phone, String code) {
+    public ResultBean register(String password, String phone, String code) {
 
         //接收前端传过来的参数
         System.out.println(phone);
@@ -61,17 +58,22 @@ public class UserController {
             return ResultBean.ofSuccess(0, "手机号已存在,注册失败");
         }if(user == null){
             System.out.println("注册成功");
-            cd.setPassword(password);
-            cd.setPhone(phone);
+
 
             //添加到数据库
+            //同步手机号和用户名，保持一致
+            cd.setUsername(cd.getPhone());
             //用户表
+            cd.setPassword(password);
+            cd.setPhone(phone);
+            System.out.println(cd+"111111111111111111111111111111111111111");
             userService.addAll(cd);
+
             //验证码表
-            CodeDo co = new CodeDo();
-            co.setPhone(phone);
-            co.setCode(code);
-            codeService.addAll(co);
+            codeDo.setPhone(phone);
+            codeDo.setCode(code);
+            System.out.println(codeDo+"222222222222222222222222222222222222222");
+            codeService.addAll(codeDo);
         }
 
         //返回结果信息
