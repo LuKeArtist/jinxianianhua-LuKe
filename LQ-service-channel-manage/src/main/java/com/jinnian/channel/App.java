@@ -21,7 +21,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @EnableScheduling
 
-@ComponentScans(@ComponentScan("com.jinnian.framework"))  // 扫描common、model、api、util下的所有类
+@ComponentScans(@ComponentScan("com.jinnian.framework"))
+// 扫描common、model、api、util下的所有类
 @EntityScan("com.jinnian.framework.model") // 扫描实体类
 @MapperScan("com.jinnian.channel.mapper")  //扫描接口
 
@@ -31,6 +32,7 @@ public class App {
 
         SpringApplication.run(App.class, args);
         System.out.println("开工——_——");
+        System.out.println("代码开源不易，且珍惜");
 
 
     }

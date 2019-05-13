@@ -21,6 +21,7 @@ public class TestController {
     @RequestMapping(value = "/hello")
     public String index() {
         System.out.println("output:>>>>>" + "进入controller");
+
         return "Hi,欢迎进入我的世界，我是liuqi";
     }
 }
