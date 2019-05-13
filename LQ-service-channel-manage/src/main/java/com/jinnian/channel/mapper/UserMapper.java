@@ -1,5 +1,6 @@
 package com.jinnian.channel.mapper;
 
+import com.framework.model.channel.entity.ChannelDo;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -10,7 +11,21 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @Mapper
-public class UserMapper {
+public interface UserMapper {
+
+
+
+    //登陆
+    ChannelDo login(ChannelDo channelDo);
+
+    //添加
+    ChannelDo addUser(ChannelDo channelDo);
+
+
+
+
+
+
 
 
 

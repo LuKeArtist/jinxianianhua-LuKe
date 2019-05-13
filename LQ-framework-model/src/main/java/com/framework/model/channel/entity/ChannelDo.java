@@ -6,7 +6,7 @@ import java.util.Date;
  * @authod liuqi
  * @date 2019/5/13 11:49
  */
-public class channelDo {
+public class ChannelDo {
 
     private Integer id;
     private String username;
@@ -17,6 +17,25 @@ public class channelDo {
     private Date created_at;
     private Date updated_at;
     private String last_login_token;
+    private String nickname;
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    private String token;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     public Integer getId() {
         return id;
@@ -92,7 +111,7 @@ public class channelDo {
 
     @Override
     public String toString() {
-        return "channelDo{" +
+        return "ChannelDo{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", phone='" + phone + '\'' +

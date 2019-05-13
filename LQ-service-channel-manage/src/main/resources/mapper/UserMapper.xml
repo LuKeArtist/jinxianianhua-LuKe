@@ -1,29 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jinnian.channel.mapper.UserMapper">
-  <resultMap id="BaseResultMap" type="com.framework.model.channel.entity.channelDo">
+  <resultMap id="BaseResultMap" type="com.framework.model.channel.entity.ChannelDo">
     <result column="id" jdbcType="INTEGER" property="id" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="phone" jdbcType="VARCHAR" property="phone" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="status" jdbcType="VARCHAR" property="status" />
-    <result column="last_login_token" jdbcType="VARCHAR" property="lastLoginToken" />
-    <result column="login_at" jdbcType="TIMESTAMP" property="loginAt" />
-    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
-    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="last_login_token" jdbcType="VARCHAR" property="last_login_token" />
+    <result column="login_at" jdbcType="TIMESTAMP" property="login_at" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="created_at" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updated_at" />
+    <result column="nickname" jdbcType="TIMESTAMP" property="nickname" />
   </resultMap>
 
 
   <!--用户登陆-->
-  <select id="login" parameterType="com.framework.model.channel.entity.channelDo" resultMap="BaseResultMap">
+  <select id="login" parameterType="com.framework.model.channel.entity.ChannelDo" resultMap="BaseResultMap">
 
     SELECT
     *
-    FROM ygbx_admin
+    FROM tb_channel
     WHERE username=#{username} and password=#{password}
 
   </select>
 
-
+  <!--添加-->
+  <insert id="addUser"  parameterType="com.framework.model.channel.entity.ChannelDo">
+  INSERT INTO tb_channel (last_login_token) VALUES (#{last_login_token})
+ </insert>
 
 </mapper>
