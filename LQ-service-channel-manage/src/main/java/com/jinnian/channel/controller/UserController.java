@@ -1,13 +1,18 @@
 package com.jinnian.channel.controller;
 
 import com.framework.model.channel.entity.ChannelDo;
+import com.framework.model.channel.entity.CodeDo;
+import com.jinnian.channel.service.CodeService;
 import com.jinnian.channel.service.UserService;
 import com.jinnian.framework.common.response.ResultBean;
 import com.jinnian.framework.util.pictureUtils.TokenProccessor;
+import com.minghao.framework.model.channel.entity.UserCodeDO;
+import com.minghao.framework.model.channel.entity.UserDO;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 
@@ -23,6 +28,58 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private CodeService codeService;
+
+
+    @PostMapping(value = "/register")
+    @ApiOperation(value = "用户注册")
+    public ResultBean register(@RequestBody String password, String phone, String code) {
+
+        //接收前端传过来的参数
+        System.out.println(phone);
+        System.out.println(code);
+        System.out.println(password);
+
+       //获取手机号
+        ChannelDo cd=new ChannelDo();
+        cd.setPhone(phone);
+
+        //调用方法查询数据库的验证码
+        CodeDo codeDo = new CodeDo();
+        codeDo.setCode(code);
+        CodeDo usercode = codeService.findAll(codeDo);
+
+        //调用登陆的方法
+        ChannelDo user = userService.login(cd);
+        if(!usercode.getCode().equals(code)) {
+            return ResultBean.ofSuccess(0, "验证码不匹配，注册失败");
+        }
+        if (user != null) {
+            System.out.println("注册失败");
+            return ResultBean.ofSuccess(0, "手机号已存在,注册失败");
+        }if(user == null){
+            System.out.println("注册成功");
+            cd.setPassword(password);
+            cd.setPhone(phone);
+
+            //添加到数据库
+            //用户表
+            userService.addAll(cd);
+            //验证码表
+            CodeDo co = new CodeDo();
+            co.setPhone(phone);
+            co.setCode(code);
+            codeService.addAll(co);
+        }
+
+        //返回结果信息
+        return ResultBean.ofSuccess(1,"注册成功");
+
+    }
+
+
 
 
     @PostMapping(value = "/login")

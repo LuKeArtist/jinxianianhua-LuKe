@@ -1,6 +1,8 @@
 package com.jinnian.channel.service.Impl;
 
 import com.framework.model.channel.entity.ChannelDo;
+import com.framework.model.channel.entity.CodeDo;
+import com.jinnian.channel.mapper.CodeMapper;
 import com.jinnian.channel.mapper.UserMapper;
 import com.jinnian.channel.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,7 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
 
+
     /**
      * 登陆
      * @param channelDo
@@ -27,6 +30,8 @@ public class UserServiceImpl implements UserService {
 
         return userMapper.login(channelDo);
     }
+
+
 
     /**
      * 修改
@@ -39,5 +44,15 @@ public class UserServiceImpl implements UserService {
         return userMapper.addUpdate(channelDo);
     }
 
+    /**
+     * 添加
+     * @param channelDo
+     * @return
+     */
+    @Override
+    public ChannelDo addAll(ChannelDo channelDo) {
+
+        return userMapper.addAll(channelDo);
+    }
 
 }

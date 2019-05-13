@@ -14,20 +14,14 @@ import org.springframework.stereotype.Repository;
 public interface UserMapper {
 
 
-
     //登陆
     ChannelDo login(ChannelDo channelDo);
 
     //修改
     ChannelDo addUpdate(ChannelDo channelDo);
 
-
-
-
-
-
-
-
+    //添加
+    ChannelDo addAll(ChannelDo channelDo);
 
 
 
