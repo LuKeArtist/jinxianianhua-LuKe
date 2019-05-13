@@ -26,8 +26,10 @@
   </select>
 
   <!--修改-->
-  <insert id="addUpdate"  parameterType="com.framework.model.channel.entity.ChannelDo">
+  <update id="addUpdate" parameterType="com.framework.model.channel.entity.ChannelDo">
+
     UPDATE tb_channel SET login_at=#{login_at},last_login_token=#{last_login_token} WHERE id=#{id}
- </insert>
+
+    </update>
 
 </mapper>

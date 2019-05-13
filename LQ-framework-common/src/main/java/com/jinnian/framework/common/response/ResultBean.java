@@ -3,19 +3,17 @@ package com.jinnian.framework.common.response;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.github.pagehelper.PageInfo;
 import com.jinnian.framework.common.enums.BaseExceptionEnum;
-import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
-/**
- * @param <T>
- * @author liuqi
- * @date 2019/4/13
- */
 
-@Data
+/**
+ *
+ * @author liuqi
+ * @param <T>
+ */
 public class ResultBean<T> implements Serializable {
 
     private static final long serialVersionUID = -2361820086956983473L;
@@ -26,15 +24,90 @@ public class ResultBean<T> implements Serializable {
     private T data;
 
     private T data1;
-    private T data2;
-    private T data3;
-    private T data4;
+
 
     private Boolean success;
 
     private int code;
 
     private String msg;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
+    public T getData1() {
+        return data1;
+    }
+
+    public void setData1(T data1) {
+        this.data1 = data1;
+    }
+
+
+    public Boolean getSuccess() {
+        return success;
+    }
+
+    public void setSuccess(Boolean success) {
+        this.success = success;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public Integer getTotalNum() {
+        return totalNum;
+    }
+
+    public void setTotalNum(Integer totalNum) {
+        this.totalNum = totalNum;
+    }
+
+    public Integer getPageIndex() {
+        return pageIndex;
+    }
+
+    public void setPageIndex(Integer pageIndex) {
+        this.pageIndex = pageIndex;
+    }
+
+    public Integer getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public Integer getTotalPage() {
+        return totalPage;
+    }
+
+    public void setTotalPage(Integer totalPage) {
+        this.totalPage = totalPage;
+    }
 
     /**
      * 为null时,不参与序列化
@@ -63,13 +136,10 @@ public class ResultBean<T> implements Serializable {
         return of(data, true, BaseExceptionEnum.EC00000200.getCode(), msg);
     }
 
-    public static <T> ResultBean<T> ofSuccess(T data, T date1, T date2, T date3, T data4, String msg) {
-        return of(data, date1, date2, date3, data4, true, BaseExceptionEnum.EC00000200.getCode(), msg);
-    }
-
     public static <T> ResultBean<T> ofSuccess(T data, T date1, String msg) {
         return of(data, date1, true, BaseExceptionEnum.EC00000200.getCode(), msg);
     }
+
 
     public static <T> ResultBean<T> ofSuccess(T data, BaseExceptionEnum baseExceptionEnum) {
         return of(data, true, baseExceptionEnum);
@@ -108,21 +178,7 @@ public class ResultBean<T> implements Serializable {
         return resultBean;
     }
 
-    public static <T> ResultBean of(T data, T data1, T data2, T data3, T data4, boolean success, Integer code, String msg) {
-        ResultBean resultBean = new ResultBean<>();
-        resultBean.setData(data);
-        resultBean.setData1(data1);
-        resultBean.setData2(data2);
-        resultBean.setData3(data3);
-        resultBean.setData4(data4);
-        resultBean.setSuccess(success);
-        resultBean.setCode(code);
-        resultBean.setMsg(msg);
-        if (data instanceof Collection) {
-            resultBean.setTotalNum(((Collection) data).size());
-        }
-        return resultBean;
-    }
+
 
     public static <T> ResultBean of(T data, T data1, boolean success, Integer code, String msg) {
         ResultBean resultBean = new ResultBean<>();

@@ -121,6 +121,8 @@ public class ChannelDo {
                 ", created_at=" + created_at +
                 ", updated_at=" + updated_at +
                 ", last_login_token='" + last_login_token + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", token='" + token + '\'' +
                 '}';
     }
 }
