@@ -92,6 +92,7 @@ public class WeChatAuthorizedController {
         log.info("微信公众号授权发送,[{}]",url);
         //请不要使用get请求，单纯的跳转即可
         response.sendRedirect(url.toString());
+
     }
     
     /** 
@@ -105,7 +106,6 @@ public class WeChatAuthorizedController {
     @ApiOperation(value = "微信公众号授权验证" ,notes ="true:提交成功,false:提交失败")
     public void doGet(HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) throws ServletException,IOException{
 
-        //System.out.println(request.getUserPrincipal().getName()+"================");
         //获取登录用户id
         System.out.println("微信sessionId"+httpSession.getId());
         Long user_long_id= (Long) httpSession.getAttribute("user_long_id");
