@@ -1178,3 +1178,16 @@ org.springframework.web.HttpRequestMethodNotSupportedException: Request method '
 [INFO ] 2019-05-14 11:38:06.090 [main] App - Started App in 6.631 seconds (JVM running for 7.586)
 [INFO ] 2019-05-14 11:40:12.518 [main] App - The following profiles are active: dev
 [INFO ] 2019-05-14 11:40:18.116 [main] App - Started App in 6.626 seconds (JVM running for 7.569)
+[INFO ] 2019-05-14 11:42:39.232 [main] App - The following profiles are active: dev
+[INFO ] 2019-05-14 11:42:45.020 [main] App - Started App in 6.812 seconds (JVM running for 7.753)
+[INFO ] 2019-05-14 11:55:18.177 [main] App - The following profiles are active: dev
+[INFO ] 2019-05-14 11:55:23.821 [main] App - Started App in 6.59 seconds (JVM running for 7.716)
+[INFO ] 2019-05-14 12:07:12.390 [main] App - The following profiles are active: dev
+[INFO ] 2019-05-14 12:07:18.404 [main] App - Started App in 7.195 seconds (JVM running for 8.462)
+[INFO ] 2019-05-14 14:19:59.758 [main] App - The following profiles are active: dev
+[INFO ] 2019-05-14 14:20:05.372 [main] App - Started App in 6.541 seconds (JVM running for 7.473)
+[INFO ] 2019-05-14 14:24:23.377 [main] App - The following profiles are active: dev
+[INFO ] 2019-05-14 14:27:13.629 [main] App - The following profiles are active: dev
+[INFO ] 2019-05-14 14:27:40.823 [main] App - The following profiles are active: dev
+[INFO ] 2019-05-14 14:28:21.212 [main] App - The following profiles are active: dev
+[INFO ] 2019-05-14 14:28:26.377 [main] App - Started App in 6.184 seconds (JVM running for 7.111)

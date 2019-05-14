@@ -6,15 +6,10 @@ import com.framework.model.channel.entity.CodeDo;
 import com.jinnian.channel.service.CodeService;
 import com.jinnian.channel.service.UserService;
 import com.jinnian.framework.common.response.ResultBean;
-import com.jinnian.framework.util.pictureUtils.ResultHopeUtil;
 import com.jinnian.framework.util.pictureUtils.TokenProccessor;
 import io.swagger.annotations.ApiOperation;
-import org.apache.commons.logging.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-import sun.util.logging.PlatformLogger;
-
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 
