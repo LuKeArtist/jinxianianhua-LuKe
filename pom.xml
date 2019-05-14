@@ -255,6 +255,11 @@
                 <artifactId>slf4j-api</artifactId>
                 <version>1.6.3</version>
             </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-Logger</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
             <!--slf4j-->
 
             <!--lombok-->
