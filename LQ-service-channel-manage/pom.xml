@@ -40,6 +40,22 @@
         </dependency>
         <!-- util -->
 
+        <!--slf4j-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.6.3</version>
+        </dependency>
+        <!--slf4j-->
+
+        <!--lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+        <!--lombok-->
+
         <!-- api -->
         <dependency>
             <groupId>com.jinnian</groupId>
