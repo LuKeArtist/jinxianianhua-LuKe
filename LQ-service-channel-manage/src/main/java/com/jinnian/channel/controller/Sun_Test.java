@@ -23,7 +23,7 @@ public class Sun_Test {
         while (true) {
             sun(arr);
             if (arr.get(1).life <= 0) {
-                System.out.println("银角大王战死，孙悟空获胜！取经成功！");
+                System.out.println("银角大王战死，孙悟空获胜！取经成功1！");
                 break;
             }
             yin(arr);
