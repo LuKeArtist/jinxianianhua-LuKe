@@ -14,7 +14,6 @@ public interface UserService {
     //登陆
     ChannelDo login(ChannelDo channelDo);
 
-
     //修改
     ChannelDo addUpdate(ChannelDo channelDo);
 

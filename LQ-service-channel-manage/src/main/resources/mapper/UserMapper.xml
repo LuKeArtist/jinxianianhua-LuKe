@@ -21,7 +21,7 @@
     SELECT
     *
     FROM tb_channel
-    WHERE username=#{username} and password=#{password}
+    WHERE phone=#{phone} and password=#{password}
 
   </select>
 

@@ -1,14 +1,19 @@
 package com.jinnian.channel.controller;
 
+import cn.hutool.core.date.DateUtil;
 import com.framework.model.channel.entity.ChannelDo;
 import com.framework.model.channel.entity.CodeDo;
 import com.jinnian.channel.service.CodeService;
 import com.jinnian.channel.service.UserService;
 import com.jinnian.framework.common.response.ResultBean;
+import com.jinnian.framework.util.pictureUtils.ResultHopeUtil;
 import com.jinnian.framework.util.pictureUtils.TokenProccessor;
 import io.swagger.annotations.ApiOperation;
+import org.apache.commons.logging.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+import sun.util.logging.PlatformLogger;
 
 import javax.servlet.http.HttpSession;
 import java.util.Date;
@@ -32,7 +37,7 @@ public class UserController {
 
     @PostMapping(value = "/register")
     @ApiOperation(value = "用户注册")
-    public ResultBean register(String password, String phone, String code) {
+    public ResultBean register(@RequestBody String password, String phone, String code) {
 
         //接收前端传过来的参数
         System.out.println(phone);
@@ -50,9 +55,9 @@ public class UserController {
         CodeDo usercode = codeService.findAll(codeDo);
 
         //调用登陆的方法
-        //ChannelDo us = userService.login(cd);
+        ChannelDo us = userService.login(cd);
         //查询
-        ChannelDo us = userService.findAll(cd);
+       // ChannelDo us = userService.findAll(cd);
         if(!usercode.getCode().equals(code)) {
             return ResultBean.ofError(0, "验证码不匹配，注册失败");
         }
@@ -92,7 +97,7 @@ public class UserController {
 
         //前端传给我的
         System.out.println(channel.getPassword());
-        System.out.println(channel.getUsername());
+        System.out.println(channel.getPhone());
 
         ChannelDo us = userService.login(channel);
         //用户名和密码
