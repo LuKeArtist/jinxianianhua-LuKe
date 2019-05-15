@@ -1651,3 +1651,7 @@ org.springframework.web.HttpRequestMethodNotSupportedException: Request method '
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.35.jar:8.5.35]
 	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_144]
 [INFO ] 2019-05-15 18:52:11.429 [main] App - The following profiles are active: dev
+[INFO ] 2019-05-15 18:59:26.664 [main] App - The following profiles are active: dev
+[INFO ] 2019-05-15 19:03:40.400 [main] App - The following profiles are active: dev
+[INFO ] 2019-05-15 19:05:35.673 [main] App - The following profiles are active: dev
+[INFO ] 2019-05-15 19:05:41.427 [main] App - Started App in 6.707 seconds (JVM running for 7.627)
