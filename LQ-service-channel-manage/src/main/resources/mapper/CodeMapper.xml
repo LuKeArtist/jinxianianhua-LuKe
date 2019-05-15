@@ -4,7 +4,7 @@
 <mapper namespace="com.jinnian.channel.mapper.CodeMapper">
 
   <resultMap id="BaseResultMap" type="com.framework.model.channel.entity.CodeDo">
-    <result column="id" jdbcType="INTEGER" property="id" />
+    <id column="id" jdbcType="INTEGER" property="id" />
     <result column="code" jdbcType="VARCHAR" property="code" />
     <result column="phone" jdbcType="VARCHAR" property="phone" />
     <result column="created_at" jdbcType="TIMESTAMP" property="created_at" />

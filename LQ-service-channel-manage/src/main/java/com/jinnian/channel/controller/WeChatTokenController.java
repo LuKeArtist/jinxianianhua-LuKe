@@ -27,14 +27,14 @@ public class WeChatTokenController {
     private static final Logger log= LoggerFactory.getLogger(WeChatTokenController.class);
 
     public static final String TOKEN = "wechat_token";
-    
-    /** 
+
+    /**
     * @Description: wechar token 验证
     * @Param: [signature 微信加密签名, timestamp 时间戳, nonce 随机数, echostr 随机字符串, response]
     * @return: [signature, timestamp, nonce, echostr, response]
     * @Author: liuqi
     * @Date: 19-5-14
-    */ 
+    */
     @RequestMapping("/get")
     public void getToken(HttpServletRequest request, HttpServletResponse response) throws NoSuchAlgorithmException, IOException {
 
