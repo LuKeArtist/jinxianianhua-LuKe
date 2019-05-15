@@ -26,4 +26,7 @@ public interface UserMapper {
     //查询
     ChannelDo findAll(ChannelDo channelDo);
 
+    //修改
+    int updateByPrimaryKey(ChannelDo record);
+
 }

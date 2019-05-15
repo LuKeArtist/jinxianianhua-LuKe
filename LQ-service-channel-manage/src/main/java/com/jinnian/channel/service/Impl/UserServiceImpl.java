@@ -1,8 +1,7 @@
 package com.jinnian.channel.service.Impl;
 
 import com.framework.model.channel.entity.ChannelDo;
-import com.framework.model.channel.entity.CodeDo;
-import com.jinnian.channel.mapper.CodeMapper;
+
 import com.jinnian.channel.mapper.UserMapper;
 import com.jinnian.channel.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,10 +54,18 @@ public class UserServiceImpl implements UserService {
         return userMapper.addAll(channelDo);
     }
 
+    //查询所有
     @Override
     public ChannelDo findAll(ChannelDo channelDo) {
 
         return userMapper.findAll(channelDo);
+    }
+
+    //修改
+    @Override
+    public int update(ChannelDo channelDo) {
+
+        return userMapper.updateByPrimaryKey(channelDo);
     }
 
 }
