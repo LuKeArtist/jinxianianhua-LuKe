@@ -4,9 +4,9 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
+import com.framework.model.channel.entity.ChannelDo;
 import com.jinnian.channel.service.UserService;
 import com.minghao.framework.common.response.ResultBean;
-import com.minghao.framework.model.channel.entity.UserDO;
 import com.minghao.framework.util.JudgeUserUtil;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
@@ -40,6 +40,7 @@ import java.util.Map;
 @CrossOrigin(methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE}, origins = "*")
 public class WeChatAuthorizedController {
 
+    private static final Logger log= LoggerFactory.getLogger(PayAliController.class);
 
     @Autowired
     private UserService userService;
@@ -108,7 +109,7 @@ public class WeChatAuthorizedController {
 
         //获取登录用户id
         System.out.println("微信sessionId"+httpSession.getId());
-        Long user_long_id= (Long) httpSession.getAttribute("user_long_id");
+        Integer user_long_id= (Integer) httpSession.getAttribute("user_long_id");
         log.info("登录用户id[{}]",user_long_id);
 
         response.setContentType("text/html");
@@ -127,7 +128,7 @@ public class WeChatAuthorizedController {
         params.put("grant_type",grant_type);
 
         try {
-            //微信开放接口 获取授权access_token 微信这里贼几把坑，两个access_token不一样 他娘的 post
+            //微信开放接口 获取授权access_token 微信这里贼几把坑，两个access_token不一样 post
             String wxUrl="https://api.weixin.qq.com/sns/oauth2/access_token";
 
             //通过code换取网页授权access_token 这里通过code换取的是一个特殊的网页授权access_token,与基础支持中的access_token（该access_token用于调用其他接口）不同
@@ -136,7 +137,7 @@ public class WeChatAuthorizedController {
             String access_token = jsonObject.get("access_token").toString();
             log.info("[授权access_token为]：[{}]",access_token);
 
-            //微信开放接口 获取基础access_token 微信这里贼几把坑，两个access_token不一样 他娘的 get
+            //微信开放接口 获取基础access_token 微信这里贼几把坑，两个access_token不一样 get
             String wxUrl2="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" + wxappid + "&secret=" + secret;
 
             //获取基础access_token
@@ -164,10 +165,10 @@ public class WeChatAuthorizedController {
                 response.sendRedirect("http://aodeng.utools.club/mhyj/dr.html".toString());
             }else{
                 //用户已经登录，并且认证成功,修改数据库用户认证状态为1
-                UserDO userDO=new UserDO();
-                userDO.setId(user_long_id);
-                userDO.setWxStatus(1);
-                int status = userService.update(userDO);
+                ChannelDo ch=new ChannelDo();
+                ch.setId(user_long_id);
+                ch.setWxStatus(1);
+                int status = userService.update(ch);
                 if(status>0){
                     log.info("修改数据库用户成功：[{}],认证状态为1",user_long_id);
                 }else{
@@ -182,10 +183,10 @@ public class WeChatAuthorizedController {
             //认证失败
             if(!StrUtil.isEmptyIfStr(user_long_id)){
                 //有用户id，认证失败，修改数据库微信认证状态为0（未认证，避免用户取消关注）
-                UserDO userDO=new UserDO();
-                userDO.setId(user_long_id);
-                userDO.setWxStatus(0);
-                int status = userService.update(userDO);
+                ChannelDo ch1=new ChannelDo();
+                ch1.setId(user_long_id);
+                ch1.setWxStatus(0);
+                int status = userService.update(ch1);
                 if(status>0){
                     log.info("修改数据库用户成功：[{}],认证状态为0",user_long_id);
                 }else{

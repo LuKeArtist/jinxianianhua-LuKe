@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinnian.channel.mapper.PaylogDoMapper">
+  <resultMap id="BaseResultMap" type="com.framework.model.channel.entity.PaylogDo">
+    <id column="tradeNo" jdbcType="BIGINT" property="tradeNo" />
+    <result column="userId" jdbcType="INTEGER" property="userId" />
+    <result column="channelId" jdbcType="INTEGER" property="channelId" />
+    <result column="payTime" jdbcType="TIMESTAMP" property="payTime" />
+    <result column="payAmount" jdbcType="DECIMAL" property="payAmount" />
+    <result column="payStatus" jdbcType="INTEGER" property="payStatus" />
+    <result column="payType" jdbcType="INTEGER" property="payType" />
+    <result column="gmtCreate" jdbcType="TIMESTAMP" property="gmtCreate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    tradeNo, userId, channelId, payTime, payAmount, payStatus, payType, gmtCreate
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tb_paylog
+    where tradeNo = #{tradeNo,jdbcType=BIGINT}
+  </select>
+
+  <!--删除-->
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from tb_paylog
+    where tradeNo = #{tradeNo,jdbcType=BIGINT}
+  </delete>
+
+  <!--添加-->
+  <insert id="insert" parameterType="com.framework.model.channel.entity.PaylogDo">
+    insert into tb_paylog (tradeNo, userId, channelId,
+      payTime, payAmount, payStatus,
+      payType, gmtCreate)
+    values (#{tradeNo,jdbcType=BIGINT}, #{userId,jdbcType=INTEGER}, #{channelId,jdbcType=INTEGER},
+      #{payTime,jdbcType=TIMESTAMP}, #{payAmount,jdbcType=DECIMAL}, #{payStatus,jdbcType=INTEGER},
+      #{payType,jdbcType=INTEGER}, #{gmtCreate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.framework.model.channel.entity.PaylogDo">
+    insert into tb_paylog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tradeNo != null">
+        tradeNo,
+      </if>
+      <if test="userId != null">
+        userId,
+      </if>
+      <if test="channelId != null">
+        channelId,
+      </if>
+      <if test="payTime != null">
+        payTime,
+      </if>
+      <if test="payAmount != null">
+        payAmount,
+      </if>
+      <if test="payStatus != null">
+        payStatus,
+      </if>
+      <if test="payType != null">
+        payType,
+      </if>
+      <if test="gmtCreate != null">
+        gmtCreate,
+      </if>
+      <if test="merchantOutOrderNo != null">
+        merchantOutOrderNo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tradeNo != null">
+        #{tradeNo,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="channelId != null">
+        #{channelId,jdbcType=INTEGER},
+      </if>
+      <if test="payTime != null">
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payAmount != null">
+        #{payAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="payStatus != null">
+        #{payStatus,jdbcType=INTEGER},
+      </if>
+      <if test="payType != null">
+        #{payType,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="merchantOutOrderNo != null">
+        #{merchantOutOrderNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <!--修改-->
+  <update id="updateByPrimaryKeySelective" parameterType="com.framework.model.channel.entity.PaylogDo">
+    update tb_paylog
+    <set>
+      <if test="userId != null">
+        userId = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="channelId != null">
+        channelId = #{channelId,jdbcType=INTEGER},
+      </if>
+      <if test="payTime != null">
+        payTime = #{payTime,jdbcType=TIMESTAMP},
+      </if>T
+      <if test="payAmount != null">
+        payAmount = #{payAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="payStatus != null">
+        payStatus = #{payStatus,jdbcType=INTEGER},
+      </if>
+      <if test="payType != null">
+        payType = #{payType,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreate != null">
+        gmtCreate = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where tradeNo = #{tradeNo,jdbcType=BIGINT}
+  </update>
+
+  <!--修改-->
+  <update id="updateByPrimaryKey" parameterType="com.framework.model.channel.entity.PaylogDo">
+    update tb_paylog
+    <set>
+    <if test="userId != null">
+      userId = #{userId,jdbcType=INTEGER},
+    </if>
+    <if test="channelId != null and channelId != ''">
+      channelId = #{channelId,jdbcType=INTEGER},
+    </if>
+    <if test="payTime != null">
+      payTime = #{payTime,jdbcType=TIMESTAMP},
+    </if>
+    <if test="payAmount != null">
+      payAmount = #{payAmount,jdbcType=DECIMAL},
+    </if>
+    <if test="payStatus != null">
+      payStatus = #{payStatus,jdbcType=INTEGER},
+    </if>
+    <if test="payType != null">
+      payType = #{payType,jdbcType=INTEGER},
+    </if>
+    <if test="gmtCreate != null">
+      gmtCreate = #{gmtCreate,jdbcType=TIMESTAMP},
+    </if>
+    </set>
+    where tradeNo = #{tradeNo,jdbcType=BIGINT}
+  </update>
+
+
+<!--修改订单状态-->
+  <update id="updateOrderStatus" parameterType="com.framework.model.channel.entity.PaylogDo">
+    update tb_paylog
+    <set>
+      <if test="userId != null">
+        userId = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="channelId != null">
+        channelId = #{channelId,jdbcType=INTEGER},
+      </if>
+      <if test="payTime != null">
+        payTime = #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payAmount != null">
+        payAmount = #{payAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="payStatus != null">
+        payStatus = #{payStatus,jdbcType=INTEGER},
+      </if>
+      <if test="payType != null">
+        payType = #{payType,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreate != null">
+        gmtCreate = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where merchantOutOrderNo = #{merchantOutOrderNo,jdbcType=BIGINT}
+  </update>
+
+
+</mapper>
