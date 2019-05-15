@@ -18,6 +18,17 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
 
+    /**
+     * 管理员查询
+     * @param name 用户名
+     * @return
+     */
+    @Override
+    public ChannelDo findByName(String name) {
+
+        return userMapper.findByName(name);
+    }
+
 
     /**
      * 登陆

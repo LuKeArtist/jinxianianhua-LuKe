@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Description: liuqi-cloud
+ * Description: jinxianianhua
  * 测试类
  *
  * @author liuqi
@@ -25,6 +25,6 @@ public class TestController {
     public String index() {
         System.out.println("output:>>>>>" + "进入controller");
 
-        return "Hi,欢迎进入我的世界，我是liuqi";
+        return "Hi,欢迎进入我的世界，我是Luke";
     }
 }

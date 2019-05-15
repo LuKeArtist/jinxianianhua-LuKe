@@ -28,4 +28,12 @@ public interface UserService {
      */
     int update(ChannelDo channelDo);
 
+
+    /**
+     * 通过用户名查询
+     * @param name 用户名
+     * @return 管理员用户
+     */
+    ChannelDo findByName(String name);
+
 }

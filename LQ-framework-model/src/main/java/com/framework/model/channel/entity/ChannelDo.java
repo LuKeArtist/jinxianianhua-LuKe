@@ -3,6 +3,7 @@ package com.framework.model.channel.entity;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * 用户表
@@ -25,6 +26,10 @@ public class ChannelDo {
     private String nickname;
     private String token;
     private Integer WxStatus; //微信认证状态
+    //角色
+    private List<Role> roles;
+    //权限
+    private List<Permission> permissions;
 
 
     @Override
