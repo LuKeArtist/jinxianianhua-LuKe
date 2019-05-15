@@ -3,7 +3,7 @@ package com.jinnian.channel.controller;
 /**
  * @author liuqi
  * @date 2019/4/16 22:12
- * 学生实体类
+ * 实体类
  */
 public class Sun {
 

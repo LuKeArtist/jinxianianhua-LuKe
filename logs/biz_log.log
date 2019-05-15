@@ -1,3 +1,7 @@
 [INFO ] 2019-05-15 11:01:30.388 [main] App - The following profiles are active: dev
 [INFO ] 2019-05-15 11:02:50.446 [main] App - The following profiles are active: dev
 [INFO ] 2019-05-15 11:02:55.772 [main] App - Started App in 6.296 seconds (JVM running for 7.223)
+[INFO ] 2019-05-15 11:15:55.519 [main] App - The following profiles are active: dev
+[INFO ] 2019-05-15 11:16:00.789 [main] App - Started App in 6.261 seconds (JVM running for 7.355)
+[INFO ] 2019-05-15 11:30:45.697 [main] App - The following profiles are active: dev
+[INFO ] 2019-05-15 11:30:50.937 [main] App - Started App in 6.205 seconds (JVM running for 7.126)

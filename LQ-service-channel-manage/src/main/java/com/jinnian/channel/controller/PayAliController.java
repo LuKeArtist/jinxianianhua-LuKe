@@ -7,15 +7,17 @@ import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
+ * @program:jinxianianhua
  * @authod liuqi
  * @date 2019/5/15 9:47
  * 支付宝支付
  */
+
+@RequestMapping("/channel")
+@CrossOrigin(methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE}, origins = "*")
 public class PayAliController {
 
     private static final Logger log= LoggerFactory.getLogger(PayAliController.class);
@@ -28,7 +30,6 @@ public class PayAliController {
      * @param paylogDo  payAmount channelId 订单信息：用户id，支付金额，渠道id
      * @return 返回url和状态
      */
-    /*@RequestMapping(value = "/payLog",method = RequestMethod.POST,produces = "application/json")*/
     @PostMapping(value = "/payLog",consumes = "application/json")
     @ApiOperation(value = "提交支付宝支付", notes = "true:提交成功,false:提交失败")
     public ResultBean<String> Pay(@RequestBody PaylogDo paylogDo){
