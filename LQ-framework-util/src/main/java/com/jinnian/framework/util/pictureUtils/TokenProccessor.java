@@ -11,7 +11,6 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Random;
 
 /**
- *
  * 生成Token的工具类
  *
  */

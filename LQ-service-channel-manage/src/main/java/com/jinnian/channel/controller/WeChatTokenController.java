@@ -3,6 +3,7 @@ package com.jinnian.channel.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -35,7 +36,7 @@ public class WeChatTokenController {
     * @Author: liuqi
     * @Date: 19-5-14
     */
-    @RequestMapping("/get")
+    @GetMapping("/get")
     public void getToken(HttpServletRequest request, HttpServletResponse response) throws NoSuchAlgorithmException, IOException {
 
         //处理数据
