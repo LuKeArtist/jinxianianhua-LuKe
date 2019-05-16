@@ -26,6 +26,7 @@ public class ChannelDo {
     private String nickname;
     private String token;
     private Integer WxStatus; //微信认证状态
+
     //角色
     private List<Role> roles;
     //权限

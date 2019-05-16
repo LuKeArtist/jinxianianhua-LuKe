@@ -1,6 +1,7 @@
 package com.jinnian.channel.mapper;
 
 import com.framework.model.channel.entity.CodeDo;
+import com.framework.model.channel.vo.ChannelCodeVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -15,7 +16,7 @@ public interface CodeMapper {
 
 
     //注册
-    CodeDo register(CodeDo codeDo);
+    ChannelCodeVo register(ChannelCodeVo channelCodeVo);
 
     //查询
     CodeDo findAll(CodeDo codeDo);
