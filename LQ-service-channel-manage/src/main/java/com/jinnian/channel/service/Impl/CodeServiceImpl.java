@@ -1,6 +1,7 @@
 package com.jinnian.channel.service.Impl;
 
 import com.framework.model.channel.entity.CodeDo;
+import com.framework.model.channel.vo.ChannelCodeVo;
 import com.jinnian.channel.mapper.CodeMapper;
 import com.jinnian.channel.service.CodeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +19,13 @@ public class CodeServiceImpl implements CodeService {
 
     /**
      * 注册
-     * @param codeDo
+     * @param channelCodeVo
      * @return
      */
     @Override
-    public CodeDo register(CodeDo codeDo) {
+    public ChannelCodeVo register(ChannelCodeVo channelCodeVo) {
 
-        return codeMapper.register(codeDo);
+        return codeMapper.register(channelCodeVo);
     }
 
     /**

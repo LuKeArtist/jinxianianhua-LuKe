@@ -1,15 +1,17 @@
 package com.jinnian.channel.controller;
 
-import cn.hutool.core.date.DateUtil;
 import com.framework.model.channel.entity.ChannelDo;
 import com.framework.model.channel.entity.CodeDo;
+import com.framework.model.channel.vo.ChannelCodeVo;
 import com.jinnian.channel.service.CodeService;
 import com.jinnian.channel.service.UserService;
 import com.jinnian.framework.common.response.ResultBean;
 import com.jinnian.framework.util.pictureUtils.TokenProccessor;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
+
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 
@@ -29,61 +31,57 @@ public class UserController {
     @Autowired
     private CodeService codeService;
 
+    //调用加密
+    @Value("${salt}")
+    private String slat;
 
     @PostMapping(value = "/register")
     @ApiOperation(value = "用户注册")
-    public ResultBean register(@RequestBody String password, String phone, String code) {
+    public ResultBean register(@RequestBody ChannelCodeVo channelCodeVo) {
 
         //接收前端传过来的参数
-        System.out.println(phone);
-        System.out.println(code);
-        System.out.println(password);
+        System.out.println(channelCodeVo);
 
-       //获取手机号
-        ChannelDo cd=new ChannelDo();
-        cd.setPhone(phone);
-        cd.setPassword(password);
+        //获取手机号
+        ChannelDo cd = new ChannelDo();
+        cd.setPhone(channelCodeVo.getPhone());
+        cd.setPassword(cd.getPassword());
 
         //调用方法查询数据库的验证码
         CodeDo codeDo = new CodeDo();
-        codeDo.setCode(code);
+        codeDo.setCode(codeDo.getCode());
         CodeDo usercode = codeService.findAll(codeDo);
 
-        //调用登陆的方法
-        ChannelDo us = userService.login(cd);
         //查询
-       // ChannelDo us = userService.findAll(cd);
-        if(!usercode.getCode().equals(code)) {
+        ChannelDo us = userService.findAll(cd);
+        if (!usercode.getCode().equals(codeDo.getCode())) {
             return ResultBean.ofError(0, "验证码不匹配，注册失败");
         }
         if (us != null) {
-            System.out.println(us+"4444444444444444444444");
+            System.out.println(us + "4444444444444444444444");
             return ResultBean.ofError(0, "手机号已存在,注册失败");
         } else {
-
 
             //添加到数据库
             //同步手机号和用户名，保持一致
             cd.setUsername(cd.getPhone());
             //用户表
-            cd.setPassword(password);
-            cd.setPhone(phone);
-            System.out.println(cd+"111111111111111111111111111111111111111");
+            cd.setPassword(cd.getPassword());
+            cd.setPhone(cd.getPhone());
+            System.out.println(cd + "111111111111111111111111111111111111111");
             userService.addAll(cd);
 
             //验证码表
-            codeDo.setPhone(phone);
-            codeDo.setCode(code);
-            System.out.println(codeDo+"222222222222222222222222222222222222222");
+            codeDo.setPhone(codeDo.getPhone());
+            codeDo.setCode(codeDo.getCode());
+            System.out.println(codeDo + "222222222222222222222222222222222222222");
             codeService.addAll(codeDo);
         }
 
         //返回结果信息
-        return ResultBean.ofSuccess(1,"注册成功");
+        return ResultBean.ofSuccess(1, "注册成功");
 
     }
-
-
 
 
     @PostMapping(value = "/login")
@@ -118,7 +116,7 @@ public class UserController {
             channel.setLogin_at(new Date());
             System.out.println(new Date());
 
-           // userService.addUpdate(channel);
+            // userService.addUpdate(channel);
 
 
             //保存用户id到session

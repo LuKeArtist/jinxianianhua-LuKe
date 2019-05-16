@@ -41,8 +41,6 @@ public class UserServiceImpl implements UserService {
         return userMapper.login(channelDo);
     }
 
-
-
     /**
      * 修改
      * @param channelDo
