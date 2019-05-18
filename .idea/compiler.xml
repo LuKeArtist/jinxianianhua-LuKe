@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="LQ-govern-center" />
+        <module name="LQ-framework-api" />
+        <module name="LQ-framework-model" />
+        <module name="LQ-framework-util" />
+        <module name="LQ-framework-common" />
+        <module name="LQ-service-channel-manage" />
+        <module name="LQ-govern-gateway" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="LQ-framework-api" target="1.8" />
+      <module name="LQ-framework-common" target="1.8" />
+      <module name="LQ-framework-model" target="1.8" />
+      <module name="LQ-framework-parent" target="1.8" />
+      <module name="LQ-framework-util" target="1.8" />
+      <module name="LQ-govern-center" target="1.8" />
+      <module name="LQ-govern-gateway" target="1.8" />
+      <module name="LQ-service-channel-manage" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="LQ-framework-api" options="-parameters" />
+      <module name="LQ-framework-common" options="-parameters" />
+      <module name="LQ-framework-model" options="-parameters" />
+      <module name="LQ-framework-util" options="-parameters" />
+      <module name="LQ-govern-center" options="-parameters" />
+      <module name="LQ-govern-gateway" options="-parameters" />
+      <module name="LQ-service-channel-manage" options="-parameters" />
+    </option>
+  </component>
+</project>

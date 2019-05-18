@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/LQ-framework-api/LQ-framework-api.iml" filepath="$PROJECT_DIR$/LQ-framework-api/LQ-framework-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LQ-framework-common/LQ-framework-common.iml" filepath="$PROJECT_DIR$/LQ-framework-common/LQ-framework-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LQ-framework-model/LQ-framework-model.iml" filepath="$PROJECT_DIR$/LQ-framework-model/LQ-framework-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LQ-framework-parent.iml" filepath="$PROJECT_DIR$/LQ-framework-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LQ-framework-util/LQ-framework-util.iml" filepath="$PROJECT_DIR$/LQ-framework-util/LQ-framework-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LQ-govern-center/LQ-govern-center.iml" filepath="$PROJECT_DIR$/LQ-govern-center/LQ-govern-center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LQ-govern-gateway/LQ-govern-gateway.iml" filepath="$PROJECT_DIR$/LQ-govern-gateway/LQ-govern-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LQ-service-channel-manage/LQ-service-channel-manage.iml" filepath="$PROJECT_DIR$/LQ-service-channel-manage/LQ-service-channel-manage.iml" />
+    </modules>
+  </component>
+</project>
