@@ -2614,3 +2614,5 @@ Caused by: org.apache.ibatis.reflection.ReflectionException: There is no getter 
 [DEBUG] 2019-05-16 14:02:36.670 [http-nio-8001-exec-8] findAll - ==>  Preparing: SELECT * FROM tb_channel 
 [DEBUG] 2019-05-16 14:02:36.670 [http-nio-8001-exec-8] findAll - ==> Parameters: 
 [DEBUG] 2019-05-16 14:02:36.671 [http-nio-8001-exec-8] findAll - <==      Total: 1
+[INFO ] 2019-05-18 22:24:37.012 [main] App - The following profiles are active: dev
+[INFO ] 2019-05-18 22:24:47.667 [main] App - Started App in 12.608 seconds (JVM running for 17.1)
